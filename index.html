@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PU Pulse | Campus Essentials</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              // Existing
+              background: "var(--background)",
+              foreground: "var(--foreground)",
+              muted: '#171717',
+              'muted-foreground': '#A3A3A3',
+              // New additions
+              skeleton: "var(--skeleton)",
+              border: "var(--btn-border)",
+              input: "var(--input)",
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+            },
+            boxShadow: {
+              input: [
+                "0px 2px 3px -1px rgba(0, 0, 0, 0.1)",
+                "0px 1px 0px 0px rgba(25, 28, 33, 0.02)",
+                "0px 0px 0px 1px rgba(25, 28, 33, 0.08)",
+              ].join(", "),
+            },
+            animation: {
+              ripple: "ripple 2s ease calc(var(--i, 0) * 0.2s) infinite",
+              orbit: "orbit calc(var(--duration) * 1s) linear infinite",
+            },
+            keyframes: {
+              ripple: {
+                "0%, 100%": { transform: "translate(-50%, -50%) scale(1)" },
+                "50%": { transform: "translate(-50%, -50%) scale(0.9)" },
+              },
+              orbit: {
+                "0%": {
+                  transform:
+                    "rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)",
+                },
+                "100%": {
+                  transform:
+                    "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
+                },
+              }
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --background: #030303;
+        --foreground: #FFFFFF;
+        --skeleton: #1a1a1a;
+        --border: #262626;
+        --btn-border: #262626;
+        --input: #1a1a1a;
+        --radius: 0.5rem;
+      }
+
+      /* Minimal Scrollbar Dark */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000000; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333333; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555555; 
+      }
+      ::selection {
+        background-color: #6366f1; /* Indigo-500 */
+        color: white;
+      }
+      
+      body {
+        background-color: var(--background);
+        color: var(--foreground);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      .g-button {
+        border-radius: var(--radius);
+        border: 1px solid var(--btn-border);
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.6.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.32.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "three": "https://aistudiocdn.com/three@^0.181.2",
+    "clsx": "https://aistudiocdn.com/clsx@^2.1.1",
+    "tailwind-merge": "https://aistudiocdn.com/tailwind-merge@^3.4.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25",
+    "vite": "https://aistudiocdn.com/vite@^7.2.7",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="dark">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
